@@ -29,6 +29,16 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# track mapbox type definitions
+!node_modules/
+
+node_modules/*
+!node_modules/@types/
+
+node_modules/@types/*
+!node_modules/@types/cordova-plugin-mapbox/
