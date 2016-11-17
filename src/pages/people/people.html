@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      People
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="people">
+      <ion-segment-button value="top">
+        Top
+      </ion-segment-button>
+      <ion-segment-button value="fav">
+        Favorite
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="people">
+    <ion-list *ngSwitchCase="'top'">
+      <ion-item>
+        <ion-icon name="person" item-left large></ion-icon>
+        <!--<ion-thumbnail item-left>
+          <img src="img/thumbnail-totoro.png">
+        </ion-thumbnail>-->
+        <h2>Hillary Clinton</h2>
+        <p>Madam Secretary</p>
+        <button ion-button item-right>Bio</button>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person" item-left large></ion-icon>
+        <h2>Donald Trump</h2>
+        <p>USA President-elect</p>
+        <button ion-button item-right>Bio</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'fav'">
+      <ion-item>
+        <ion-icon name="person" item-left large></ion-icon>
+        <h2>Abraham Lincoln</h2>
+        <p>USA Former President</p>
+        <button ion-button item-right>Bio</button>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person" item-left large></ion-icon>
+        <h2>Barack Obama</h2>
+        <p>USA Incumbent President</p>
+        <button ion-button item-right>Bio</button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
