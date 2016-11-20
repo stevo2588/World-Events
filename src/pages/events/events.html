@@ -9,91 +9,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let item of worldEvents">
       <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
-      <button item-right ion-button large icon-only>
-        <ion-icon name="globe"></ion-icon>
-      </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon clear item-left large name="warning"></ion-icon>
-      <h2>Catalan Bullfighting</h2>
-      <p>Spain's top courts overturn Catalan bullfighting</p>
+      <h2>{{item.title}}</h2>
+      <p>{{item.subtitle}}</p>
       <button item-right ion-button large icon-only>
         <ion-icon name="globe"></ion-icon>
       </button>
