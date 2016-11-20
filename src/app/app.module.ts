@@ -1,3 +1,5 @@
+import { EnvironmentService } from './../services/environment.service';
+import { DataService } from './../services/data.service';
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -28,6 +30,6 @@ import { MapboxMap } from './../components/mapbox-map/mapbox-map';
     TabsPage,
     MapboxMap
   ],
-  providers: []
+  providers: [ DataService, EnvironmentService ]
 })
 export class AppModule {}

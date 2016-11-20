@@ -34,6 +34,11 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
+# ignore environment.ts, as this can contain sensitive information
+environment.ts
+environment.js
+environment.js.map
+
 # track mapbox type definitions
 !node_modules/
 

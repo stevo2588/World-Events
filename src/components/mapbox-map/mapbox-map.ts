@@ -1,3 +1,4 @@
+import { WorldEvent } from './../../models/world-event';
 import { Platform } from 'ionic-angular';
 import { Component } from '@angular/core';
 
@@ -9,15 +10,19 @@ import { Component } from '@angular/core';
     templateUrl: './mapbox-map.html',
 })
 export class MapboxMap {
+
+    visible = false;
  
     constructor(platform: Platform){
     }
 
     hideMap() {
+      this.visible = false;
       Mapbox.hide();
     }
 
-    showMap(marginTop, marginBottom) {
+    showMap(marginTop, marginBottom, marks) {
+        this.visible = true;
         Mapbox.show(
           {
             style: 'emerald', // light|dark|emerald|satellite|streets , default 'streets'
@@ -31,7 +36,7 @@ export class MapboxMap {
               lat: 52.3702160,
               lng: 4.8951680
             },
-            zoomLevel: 12, // 0 (the entire world) to 20, default 10
+            zoomLevel: 2, // 0 (the entire world) to 20, default 10
             showUserLocation: true, // your app will ask permission to the user, default false
             hideAttribution: false, // default false, Mapbox requires this default if you're on a free plan
             hideLogo: false, // default false, Mapbox requires this default if you're on a free plan
@@ -40,14 +45,15 @@ export class MapboxMap {
             disableScroll: false, // default false
             disableZoom: false, // default false
             disablePitch: false, // disable the two-finger perspective gesture, default false
-            markers: [
-              {
-                lat: 52.3732160,
-                lng: 4.8941680,
-                title: 'Nice location',
-                subtitle: 'Really really nice location'
-              }
-            ]
+            markers: marks
+            // [
+            //   {
+            //     lat: 52.3732160,
+            //     lng: 4.8941680,
+            //     title: 'Nice location',
+            //     subtitle: 'Really really nice location'
+            //   }
+            // ]
           },
 
           // optional success callback
@@ -60,5 +66,16 @@ export class MapboxMap {
             alert("Error :( " + JSON.stringify(msg));
           }
         )
+    }
+
+    addEvents(worldEvents: WorldEvent[]) {
+      Mapbox.addMarkers(worldEvents.map<any>(
+        e => ({
+          lat: e.wgs84_lat,
+          lng: e.wgs84_long,
+          title: e.title,
+          subtitle: e.source
+        })
+      ));
     }
 }
