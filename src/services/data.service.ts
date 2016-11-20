@@ -13,8 +13,7 @@ import { WorldEvent } from './../models/world-event';
 export class DataService {
 
   private url: string;
-  // obsv: ConnectableObservable<WorldEvent[]>;
-  obsv: Observable<WorldEvent[]>;
+  obsv: ConnectableObservable<WorldEvent[]>;
 
   constructor(private environmentService: EnvironmentService, private http: Http) {
     this.url = this.environmentService.getEventAPIUrl();
@@ -24,9 +23,10 @@ export class DataService {
       .startWith(0)
       .flatMapTo(this.http.get(this.url))
       .map((res:Response) => res.json())
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-      // .publish();
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+      .share()
+      .publishReplay(1);
 
-    // this.obsv.refCount();
+    this.obsv.connect();
   }
 }
